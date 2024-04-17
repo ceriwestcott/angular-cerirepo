@@ -1,0 +1,9 @@
+{
+  "name": "angular-cerirepo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/angular-cerirepo-e2e/src",
+  "implicitDependencies": ["angular-cerirepo"],
+  "// targets": "to see all targets run: nx show project angular-cerirepo-e2e --web",
+  "targets": {}
+}
