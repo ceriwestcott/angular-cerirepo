@@ -1,0 +1,13 @@
+<div class="w-full flex-grow">
+  <h1
+    class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl py-6 underline"
+  >
+    Select A Player
+  </h1>
+
+  <lib-player-list [playerList]="playerList"></lib-player-list>
+  <lib-match-title
+    [player_one]="{ name: 'Dylan' }"
+    [player_two]="{ name: 'Ceri' }"
+  ></lib-match-title>
+</div>

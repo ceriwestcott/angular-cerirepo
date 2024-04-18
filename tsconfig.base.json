@@ -14,7 +14,19 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-cerirepo/fifa-league/data": [
+        "libs/fifa-league/data/src/index.ts"
+      ],
+      "@angular-cerirepo/fifa-league/feature": [
+        "libs/fifa-league/feature/src/index.ts"
+      ],
+      "@angular-cerirepo/fifa-league/ui": ["libs/fifa-league/ui/src/index.ts"],
+      "@angular-cerirepo/fifa-league/util": [
+        "libs/fifa-league/util/src/index.ts"
+      ],
+      "@angular-cerirepo/shared-ui": ["libs/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
