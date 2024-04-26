@@ -1,21 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatchTitleComponent } from './match-title.component';
-
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 describe('MatchTitleComponent', () => {
-  let component: MatchTitleComponent;
-  let fixture: ComponentFixture<MatchTitleComponent>;
+  let spectator: Spectator<MatchTitleComponent>;
+  const createComponent = createComponentFactory(MatchTitleComponent);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [MatchTitleComponent],
-    }).compileComponents();
+  beforeEach(
+    () =>
+      (spectator = createComponent({
+        props: {
+          player_one: { name: 'Player 1' },
+          player_two: { name: 'Player 2' },
+        },
+      }))
+  );
 
-    fixture = TestBed.createComponent(MatchTitleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  it('should display both player names', () => {
+    const player_one = spectator.query("[data-role='player_one']")?.innerHTML;
+    const player_two = spectator.query("[data-role='player_two']")?.innerHTML;
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(player_one).toContain(' Player 1 ');
+    expect(player_two).toContain('Player 2');
   });
 });

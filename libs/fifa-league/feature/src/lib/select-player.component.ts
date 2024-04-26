@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { Player } from '@angular-cerirepo/fifa-league/util';
+import { Match, Player } from '@angular-cerirepo/fifa-league/util';
 import { FifaService } from '@angular-cerirepo/fifa-league/data';
 import {
   MatchTitleComponent,
@@ -15,7 +15,7 @@ import {
 })
 export class SelectPlayerComponent {
   playerList: Player[] = [];
-
+  match: Match | undefined;
   selectedPlayer = new EventEmitter<Player>();
 
   constructor(private fifaService: FifaService) {
