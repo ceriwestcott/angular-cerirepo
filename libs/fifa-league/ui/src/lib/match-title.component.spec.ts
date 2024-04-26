@@ -18,7 +18,7 @@ describe('MatchTitleComponent', () => {
     const player_one = spectator.query("[data-role='player_one']")?.innerHTML;
     const player_two = spectator.query("[data-role='player_two']")?.innerHTML;
 
-    expect(player_one).toContain(' Player 1 ');
+    expect(player_one).toContain('Player 1');
     expect(player_two).toContain('Player 2');
   });
 });
