@@ -1,13 +1,49 @@
-<div class="w-full flex-grow">
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl py-6 underline"
-  >
-    Select A Player
-  </h1>
+<div class="card flex flex-row w-100 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2
+      class="card-title text-3xl font-bold tracking-widest uppercase justify-center"
+    >
+      Set up game
+    </h2>
+    <hr />
+    
+    <ng-container *ngIf="teams$ | async as team">
+      <ng-container *ngIf="players$ | async as players" class="space-x-4">
+        <div class="flex flex-row justify-evenly">
+          <div class="flex-col space-y-3">
+            <select class="select select-bordered w-full max-w-xs">
+              <option disabled selected>Select player 1</option>
+              <ng-container *ngFor="let player of players">
+                <option>{{ player.name }}</option>
+              </ng-container>
+            </select>
+            <select class="select select-bordered w-full max-w-xs">
+              <option disabled selected>Select a team</option>
+              <ng-container *ngFor="let club of team">
+                <option>{{ club }}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="flex-col space-y-3">
+            <select class="select select-bordered w-full max-w-xs">
+              <option disabled selected>Select player 2</option>
+              <ng-container *ngFor="let player of players">
+                <option>{{ player.name }}</option>
+              </ng-container>
+            </select>
+            <select class="select select-bordered w-full max-w-xs">
+              <option disabled selected>Select a team</option>
+              <ng-container *ngFor="let club of team">
+                <option>{{ club }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
 
-  <lib-player-list [playerList]="playerList"></lib-player-list>
-  <lib-match-title
-    [player_one]="{ name: 'Dylan' }"
-    [player_two]="{ name: 'Ceri' }"
-  ></lib-match-title>
+    <div class="card-actions pt-5">
+      <button class="btn btn-primary w-full">Create Match</button>
+    </div>
+  </div>
 </div>
