@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SelectPlayerComponent } from '@angular-cerirepo/fifa-league/feature';
+import {
+  SelectPlayerComponent,
+  HistoricalGamesComponent,
+} from '@angular-cerirepo/fifa-league/feature';
+
 import { Route, RouterModule } from '@angular/router';
 
 const routes: Route[] = [
   {
     path: '',
     component: SelectPlayerComponent,
+  },
+  {
+    path: 'historic-games',
+    component: HistoricalGamesComponent,
   },
 ];
 

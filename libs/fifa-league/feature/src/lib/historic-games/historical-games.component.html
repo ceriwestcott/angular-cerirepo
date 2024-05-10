@@ -1,0 +1,66 @@
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <div class="card-title">Historical Games</div>
+
+    <div class="overflow-x-auto">
+      <table class="table" *ngIf="historicalGames$ | async as historicalGames">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Home</th>
+            <th>Away</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(match of historicalGames; track match; let i = $index){
+          <tr
+            (click)="matchDetails(match)"
+            class="hover:bg-slate-200 transition-colors ease-in-out duration-300 cursor-pointer"
+          >
+            <th>{{ +i + 1 }}</th>
+            <td>
+              <span
+                [ngClass]="
+                  (match.score?.home ?? 0) > (match.score?.away ?? 0)
+                    ? 'bg-green-300 py-1 px-2 rounded-full'
+                    : 'bg-red-400 py-1 px-2 rounded-full'
+                "
+                >{{ match.home.name }}</span
+              >
+            </td>
+            <td>
+              <span
+                [ngClass]="
+                  (match.score?.home ?? 0) < (match.score?.away ?? 0)
+                    ? 'bg-green-300 py-1 px-2 rounded-full'
+                    : 'bg-red-400 py-1 px-2 rounded-full'
+                "
+                >{{ match.away.name }}</span
+              >
+            </td>
+            <td>{{ match.score?.home + ' - ' + match.score?.away }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my_modal_6" class="modal-toggle" />
+<div class="modal" role="dialog">
+  <div class="modal-box text-center">
+    <h3 class="font-bold text-lg">
+      {{ selectedMatch | gameResult }}
+    </h3>
+    <p class="py-4">
+      {{ selectedMatch?.home?.team + ' v ' + selectedMatch?.away?.team }}
+    </p>
+    <div class="modal-action">
+      <label for="my_modal_6" class="btn">Close!</label>
+    </div>
+  </div>
+</div>

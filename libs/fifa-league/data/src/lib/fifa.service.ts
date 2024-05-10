@@ -38,4 +38,30 @@ export class FifaService {
   createMatch(match: Match): void {
     console.log('Match created', match);
   }
+
+  getHistoricalGames(): Observable<Match[]> {
+    return of([
+      {
+        home: { name: 'Ceri', team: 'Arsenal' },
+        away: { name: 'Tom', team: 'Chelsea' },
+        winner: { name: 'Ceri', team: 'Arsenal' },
+        score: { home: 2, away: 1 },
+        inPlay: false,
+      },
+      {
+        home: { name: 'Dylan', team: 'Liverpool' },
+        away: { name: 'Ceri', team: 'Manchester City' },
+        winner: { name: 'Ceri', team: 'Manchester City' },
+        score: { home: 0, away: 3 },
+        inPlay: false,
+      },
+      {
+        home: { name: 'Tom', team: 'Manchester United' },
+        away: { name: 'Dylan', team: 'Tottenham Hotspur' },
+        winner: { name: 'Dylan', team: 'Tottenham Hotspur' },
+        score: { home: 1, away: 2 },
+        inPlay: true,
+      },
+    ]);
+  }
 }
