@@ -1,8 +1,15 @@
-import { Player } from './player.model';
-
-export interface Match {
-  id: string;
-  player1: Player;
-  player2: Player;
+export interface Player {
+  name: string;
+  team?: string;
 }
 
+export interface Match {
+  home: Player;
+  away: Player;
+  winner?: Player;
+  score?: {
+    home: number;
+    away: number;
+  };
+  inPlay: boolean;
+}

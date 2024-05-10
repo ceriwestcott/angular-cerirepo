@@ -1,26 +1,68 @@
-<div class="w-full flex-grow">
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl py-6 underline"
-  >
-    Select A Player
-  </h1>
-
-  <lib-player-list [playerList]="playerList"></lib-player-list>
-  <lib-match-title
-    [player_one]="{ name: 'Dylan' }"
-    [player_two]="{ name: 'Ceri' }"
-  ></lib-match-title>
-
-  <div class="flex flex-col gap-y-2">
-    <input
-      type="text"
-      placeholder="Type here"
-      class="input input-bordered w-full max-w-xs"
-    />
-    <input
-      type="text"
-      placeholder="Type here"
-      class="input input-bordered w-full max-w-xs"
-    />
+<div class="card flex flex-row w-100 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2
+      class="card-title text-3xl font-bold tracking-widest uppercase justify-center"
+    >
+      Set up game
+    </h2>
+    <hr />
+    <form [formGroup]="matchForm" (submit)="createGame()">
+      <ng-container *ngIf="setupData$ | async as gameData">
+        <div
+          class="flex flex-col sm:flex-row justify-between sm:space-x-2 sm:px-4"
+        >
+          <div class="flex-col space-y-3">
+            <select
+              class="select select-bordered w-full max-w-xs"
+              formControlName="home"
+            >
+              <option disabled selected value>Select player 1</option>
+              <ng-container *ngFor="let player of gameData.players">
+                <option data-role="home-dropdown">{{ player.name }}</option>
+              </ng-container>
+            </select>
+            <select
+              class="select select-bordered w-full max-w-xs"
+              formControlName="homeTeam"
+            >
+              <option disabled selected value>Select a team</option>
+              <ng-container *ngFor="let club of gameData.teams">
+                <option data-role="home-team-dropdown">{{ club }}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="flex-col space-y-3">
+            <select
+              class="select select-bordered w-full max-w-xs"
+              formControlName="away"
+            >
+              <option disabled selected value>Select player 2</option>
+              <ng-container *ngFor="let player of gameData.players">
+                <option data-role="away-dropdown">{{ player.name }}</option>
+              </ng-container>
+            </select>
+            <select
+              class="select select-bordered w-full max-w-xs"
+              formControlName="awayTeam"
+            >
+              <option disabled selected value>Select a team</option>
+              <ng-container *ngFor="let club of gameData.teams">
+                <option data-role="away-team-dropdown">{{ club }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="card-actions pt-5 max-w-50 px-4">
+          <button
+            class="btn btn-primary btn-wide"
+            type="submit"
+            data-role="create-match-button"
+            [disabled]="matchForm.invalid"
+          >
+            Create Match
+          </button>
+        </div>
+      </ng-container>
+    </form>
   </div>
 </div>
