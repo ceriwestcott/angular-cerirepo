@@ -1,4 +1,4 @@
-import { Player } from '@angular-cerirepo/fifa-league/util';
+import { Match, Player } from '@angular-cerirepo/fifa-league/util';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -33,5 +33,9 @@ export class FifaService {
       'West Bromwich Albion',
       'Sheffield United',
     ]);
+  }
+
+  createMatch(match: Match): void {
+    console.log('Match created', match);
   }
 }
