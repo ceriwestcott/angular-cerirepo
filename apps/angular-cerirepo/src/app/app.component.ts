@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { SharedUiComponent } from '@angular-cerirepo/shared-ui';
-import { NavigationComponent } from './navigation/Navigation.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @Component({
   standalone: true,

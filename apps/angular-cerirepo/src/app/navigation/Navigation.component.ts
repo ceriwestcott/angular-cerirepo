@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-navigation',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './Navigation.component.html',
-  styleUrl: './Navigation.component.css',
+  templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.css',
 })
 export class NavigationComponent {}

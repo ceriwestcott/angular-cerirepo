@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NavigationComponent } from './Navigation.component';
+import { NavigationComponent } from './navigation.component';
+import { RouterModule } from '@angular/router';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -7,7 +8,7 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationComponent],
+      imports: [NavigationComponent, RouterModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavigationComponent);
