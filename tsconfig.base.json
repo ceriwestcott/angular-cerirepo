@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-cerirepo/fifa-league-ang": [
+        "libs/fifa-league/shell/src/index.ts"
+      ],
       "@angular-cerirepo/fifa-league/data": [
         "libs/fifa-league/data/src/index.ts"
       ],

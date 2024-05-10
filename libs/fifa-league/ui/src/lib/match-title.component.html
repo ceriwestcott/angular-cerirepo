@@ -1,11 +1,11 @@
 <div
-  class="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl py-6 underline"
+  class="text-3xl flex flex-col font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl py-6 underline transition fade-in"
 >
-  <div class="w-1/2 px-4">
+  <div class="w-1/2 px-4" data-role="player_one">
     {{ player_one.name }}
   </div>
-  <span class="w-1/2 px-4">vs</span>
-  <div class="w-1/2 px-4">
+  <span class="w-1/2 px-4 text-2xl">vs</span>
+  <div class="w-1/2 px-4" data-role="player_two">
     {{ player_two.name }}
   </div>
 </div>
